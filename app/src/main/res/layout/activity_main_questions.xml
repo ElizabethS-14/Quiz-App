@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#c0f3f9"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Title"
+        android:text="Question 1 of 10"
+        android:translationY="-160dp"
+        android:translationX="-40dp"
+        android:textSize="42sp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Emojis"
+        android:translationY="-100dp"
+        android:textSize="52sp"
+        android:text="🚲🏠🎈🤡"
+
+        />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/choice1"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:text="IT"
+        android:textSize="22sp"
+
+        />
+
+    <Button
+        android:id="@+id/choice2"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:text="Toy Story"
+        android:textSize="22sp"
+
+        />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/choice3"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:text="Up"
+            android:textSize="22sp"
+
+            />
+
+        <Button
+            android:id="@+id/choice4"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:text="Home Alone"
+            android:textSize="22sp"
+
+            />
+
+    </LinearLayout>
+</LinearLayout>
