@@ -16,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextView Title;
 
-    Button startButton;
+    Button Easy;
+
+    Button Medium;
+
+    Button Hard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +29,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Title = (TextView) findViewById(R.id.Title);
-        startButton = (Button) findViewById(R.id.startButton);
+        Easy = (Button) findViewById(R.id.Easy);
+        Medium = (Button) findViewById(R.id.Medium);
+        Hard = (Button) findViewById(R.id.Hard);
 
-        startButton.setOnClickListener(new View.OnClickListener() {
+        Medium.setOnClickListener(new View.OnClickListener() {
                @Override
             public void onClick(View v) {
-Intent intent = new Intent(MainActivity.this,MainQuestions.class);
+Intent intent = new Intent(MainActivity.this,MediumQuestions.class);
 startActivity(intent);
             }
         });

@@ -12,18 +12,32 @@
         android:layout_height="wrap_content"
         android:id="@+id/Title"
         android:text="Guess the Movie by the Emoji"
-        android:translationY="-150dp"
+        android:translationY="-140dp"
         android:textSize="52sp"
 
         />
 
     <Button
-        android:id="@+id/startButton"
+        android:id="@+id/Easy"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:text="Easy"
+        android:textSize="52sp" />
+
+    <Button
+        android:id="@+id/Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="START"
+        android:text="Medium"
         android:textSize="52sp"
         />
+
+    <Button
+        android:id="@+id/Hard"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content"
+        android:text="Hard"
+        android:textSize="52sp" />
 
 
 </LinearLayout>

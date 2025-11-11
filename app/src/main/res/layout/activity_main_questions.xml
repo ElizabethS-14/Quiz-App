@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Title"
-        android:text="Question 1 of 10"
+        android:text="questions"
         android:translationY="-160dp"
         android:translationX="-40dp"
         android:textSize="42sp"
@@ -24,7 +24,7 @@
         android:id="@+id/Emojis"
         android:translationY="-100dp"
         android:textSize="52sp"
-        android:text="🚲🏠🎈🤡"
+        android:text="emojis"
 
         />
 
@@ -38,7 +38,7 @@
         android:id="@+id/choice1"
         android:layout_width="180dp"
         android:layout_height="100dp"
-        android:text="IT"
+        android:text="choice1"
         android:textSize="22sp"
 
         />
@@ -47,7 +47,7 @@
         android:id="@+id/choice2"
         android:layout_width="180dp"
         android:layout_height="100dp"
-        android:text="Toy Story"
+        android:text="choice2"
         android:textSize="22sp"
 
         />
@@ -64,7 +64,7 @@
             android:id="@+id/choice3"
             android:layout_width="180dp"
             android:layout_height="100dp"
-            android:text="Up"
+            android:text="choice3"
             android:textSize="22sp"
 
             />
@@ -73,7 +73,7 @@
             android:id="@+id/choice4"
             android:layout_width="180dp"
             android:layout_height="100dp"
-            android:text="Home Alone"
+            android:text="choice4"
             android:textSize="22sp"
 
             />

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainQuestions extends AppCompatActivity {
+public class MediumQuestions extends AppCompatActivity {
 
     TextView Title;
 
@@ -88,7 +88,7 @@ public class MainQuestions extends AppCompatActivity {
         if(currentQuestion < emojiQuestions.length){
             theQuestions();
         } else{
-            Intent intent = new Intent(MainQuestions.this, Score.class);
+            Intent intent = new Intent(MediumQuestions.this, Score.class);
            //carries over the score and # of questions so the other screen
             intent.putExtra("score", score);
             intent.putExtra("totalQuestions", emojiQuestions.length);
