@@ -1,7 +1,11 @@
 package edu.bpi.moviesbyemojis;
 
+import static android.graphics.Color.GREEN;
+
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,6 +34,7 @@ public class MainQuestions extends AppCompatActivity {
     private String[]emojiQuestions;
     private String[][] answerChoices;
     private String[] answers;
+    private int originalButtonColor;
 
     //EASY DIFFICULTY
     String[] easyEmojiQuestions = {"🎈👴🏠","🦁👑","🧊️👭⛄","🕷️🧑‍🎓","🚢💔🌊"};
@@ -43,29 +48,30 @@ public class MainQuestions extends AppCompatActivity {
     String[] easyAnswers = {"Up","The Lion King","Frozen","Spider-Man","Titanic"};
 
     //MEDIUM DIFFICULTY
-    String[] mediumEmojiQuestions = {"🏃‍♂️🍫", "🐀👨‍🍳🍝", "🤖💙", "🎪🐘", "🏔️⛄👧"};
+    String[] mediumEmojiQuestions = {"🐠🔍", "👽📞🏠", "🦈🌊🏖️", "🐻🍯", "🌪️🏠🌈"};
 
     String[][] mediumAnswerChoices = {
-            {"Forrest Gump", "Charlie and the Chocolate Factory", "The Pursuit of Happiness", "Run Lola Run"},
-            {"Ratatouille", "Chef", "Julie & Julia", "Cloudy with a Chance of Meatballs"},
-            {"WALL-E", "Big Hero 6", "The Iron Giant", "Short Circuit"},
-            {"Dumbo", "The Greatest Showman", "Water for Elephants", "Big Fish"},
-            {"Frozen", "The Snowman", "Brave", "Tangled"}
+            {"Finding Dory", "Finding Nemo", "The Little Mermaid", "Shark Tale"},
+            {"Close Encounters", "E.T.", "Alien", "Arrival"},
+            {"The Meg", "Deep Blue Sea", "Jaws", "Open Water"},
+            {"Paddington", "Winnie the Pooh", "Yogi Bear", "Brother Bear"},
+            {"Twister", "Into the Storm", "The Wizard of Oz", "Dorothy's Return"}
     };
 
-    String[] mediumAnswers = {"Forrest Gump", "Ratatouille", "WALL-E", "Dumbo", "Frozen"};
+    String[] mediumAnswers = {"Finding Nemo", "E.T.", "Jaws", "Winnie the Pooh", "The Wizard of Oz"};
 
     //HARD DIFFICULTY
-    String[] hardEmojiQuestions = {"🌙🌊🎹", "🔪🚿", "🐑🤐", "🎭😱", "🕰️🍊"};
+    String[] hardEmojiQuestions = {"🎹👁️🔪🚪", "🕰️🍊🥛", "🐉👧🎨", "💀🌹🎭", "🦢🖤🩰"};
 
     String[][] hardAnswerChoices = {
-            {"Moonlight", "The Piano", "La La Land", "Whiplash"},
-            {"Psycho", "Scream", "Carrie", "The Shining"},
-            {"The Silence of the Lambs", "Babe", "Black Sheep", "A Clockwork Orange"},
-            {"The Phantom of the Opera", "Chicago", "Cats", "Moulin Rouge"},
-            {"A Clockwork Orange", "Back to the Future", "The Time Machine", "Looper"}};
+            {"The Sixth Sense", "Psycho", "Eyes Wide Shut", "Shutter Island"},
+            {"Back to the Future", "The Time Machine", "Orange County", "A Clockwork Orange"},
+            {"Gone Girl", "The Girl on the Train", "The Girl with the Dragon Tattoo", "Lisbeth"},
+            {"The Mask of Zorro", "Phantom of the Opera", "Les Misérables", "Sweeney Todd"},
+            {"The Nutcracker", "Center Stage", "Black Swan", "Swan Lake"}
+    };
 
-    String[] hardAnswers = {"Moonlight", "Psycho", "The Silence of the Lambs", "The Phantom of the Opera", "A Clockwork Orange"};
+    String[] hardAnswers = {"Eyes Wide Shut", "A Clockwork Orange", "The Girl with the Dragon Tattoo", "Phantom of the Opera", "Black Swan"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +85,9 @@ public class MainQuestions extends AppCompatActivity {
         choice2 = (Button) findViewById(R.id.choice2);
         choice3 = (Button) findViewById(R.id.choice3);
         choice4 = (Button) findViewById(R.id.choice4);
+
+        //makes the buttons a Medium Dark Blue
+        originalButtonColor=Color.parseColor("#1976D2");
 
         //Gets the difficulty from MainActivity
         difficulty = getIntent().getStringExtra("difficulty");
@@ -94,7 +103,7 @@ public class MainQuestions extends AppCompatActivity {
                 Button buttonClicked = (Button) v;
                 //takes the text of whatever button is clicked and stores it into a variable
                 String selected = buttonClicked.getText().toString();
-                checkAnswer(selected);
+                checkAnswer(selected,buttonClicked);
             }
         };
         //now each button will run on the same onClick
@@ -121,6 +130,14 @@ public class MainQuestions extends AppCompatActivity {
         }
 
     }
+    //resets the button color after u get the answer right or wrong
+    private void resetButtonColors() {
+        choice1.setBackgroundColor(originalButtonColor);
+        choice2.setBackgroundColor(originalButtonColor);
+        choice3.setBackgroundColor(originalButtonColor);
+        choice4.setBackgroundColor(originalButtonColor);
+    }
+
 
     private void theQuestions(){
         Title.setText("Question " + (currentQuestion + 1) + " of " + emojiQuestions.length);
@@ -130,25 +147,37 @@ public class MainQuestions extends AppCompatActivity {
         choice2.setText(answerChoices[currentQuestion][1]);
         choice3.setText(answerChoices[currentQuestion][2]);
         choice4.setText(answerChoices[currentQuestion][3]);
+
+        resetButtonColors();
+
     }
 
-    private void checkAnswer(String selected){
+    private void checkAnswer(String selected, Button buttonClicked){
         //checks if the button pressed is equal to the answer to the question
         if(selected.equals(answers[currentQuestion])){
+            // CORRECT! Make button GREEN
+            buttonClicked.setBackgroundColor(Color.GREEN);
             score++;
+        } else {
+            // WRONG! Make button RED
+            buttonClicked.setBackgroundColor(Color.RED);
         }
-
-        currentQuestion++;
-        //added to current question so after the button is pressed, you go to the next question if the length is less than the array
-        if(currentQuestion < emojiQuestions.length){
-            theQuestions();
-        } else{
-            Intent intent = new Intent(MainQuestions.this, Score.class);
-           //carries over the score and # of questions so the other screen
-            intent.putExtra("score", score);
-            intent.putExtra("totalQuestions", emojiQuestions.length);
-            startActivity(intent);
-        }
+// makes it so we wait a second before moving on to the next question so the user sees which answer they got wrong or right.
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                currentQuestion++;
+//added to current question so after the button is pressed, you go to the next question if the length is less than the array
+                if (currentQuestion < emojiQuestions.length) {
+                    theQuestions();
+                } else {
+                    Intent intent = new Intent(MainQuestions.this, Score.class);
+                    intent.putExtra("score", score);
+                    intent.putExtra("totalQuestions", emojiQuestions.length);
+                    startActivity(intent);
+                }
+            }
+        }, 1000);  // 1000 = 1 second
     }
 
 

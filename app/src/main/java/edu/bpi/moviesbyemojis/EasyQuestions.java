@@ -30,7 +30,7 @@ public class EasyQuestions extends AppCompatActivity {
 
     String[] emojiQuestionsE = {"🧙🍎👩🏻","👠🫅🏻🎃","🧞‍♂️🐒🏰","🐠🔍🐢","🚗🛻"};
     String[][] answerChoicesE = {{"Beauty and the Beast","TinkerBell","",""},{"","","",""},{"","","",""},{"","","",""},{"","","",""}};
-    String[] answersE
+
 
 
     @Override

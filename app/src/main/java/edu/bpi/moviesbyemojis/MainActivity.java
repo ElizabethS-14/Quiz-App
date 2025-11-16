@@ -33,11 +33,30 @@ public class MainActivity extends AppCompatActivity {
         Medium = (Button) findViewById(R.id.Medium);
         Hard = (Button) findViewById(R.id.Hard);
 
-        Medium.setOnClickListener(new View.OnClickListener() {
-               @Override
+        Easy.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-Intent intent = new Intent(MainActivity.this,MainQuestions.class);
-startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, MainQuestions.class);
+                intent.putExtra("difficulty", "Easy");
+                startActivity(intent);
+            }
+        });
+
+        Medium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainQuestions.class);
+                intent.putExtra("difficulty", "Medium");
+                startActivity(intent);
+            }
+        });
+
+        Hard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainQuestions.class);
+                intent.putExtra("difficulty", "Hard");
+                startActivity(intent);
             }
         });
 
