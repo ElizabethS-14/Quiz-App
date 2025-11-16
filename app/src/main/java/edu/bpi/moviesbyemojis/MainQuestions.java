@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MediumQuestions extends AppCompatActivity {
+public class MainQuestions extends AppCompatActivity {
 
     TextView Title;
 
@@ -25,14 +25,47 @@ public class MediumQuestions extends AppCompatActivity {
 
     private int currentQuestion = 0;
     private int score = 0;
+    private String difficulty;
 
-    String[] emojiQuestions = {"🎈👴🏠🚲","🦁👑🌅🐘","🧊❄️👭⛄","🕷️🧑‍🎓🏙️","🚢💔🌊🎻"};
+    private String[]emojiQuestions;
+    private String[][] answerChoices;
+    private String[] answers;
 
-    String[][] answerChoices ={{"IT", "Up","Toy Story","Home Alone"},{"Jungle Book", "The Lion King","Madagascar","Tarzan"},{"Frozen", "Ice Age","Encanto","Tangled"},{"Ant-Man", "Spider-Man","Batman","Iron Man"},{"Titanic", "Moana","Shipwrecked","The Perfect Storm"}};
+    //EASY DIFFICULTY
+    String[] easyEmojiQuestions = {"🎈👴🏠","🦁👑","🧊️👭⛄","🕷️🧑‍🎓","🚢💔🌊"};
 
-    String[] answers = {"Up","The Lion King","Frozen","Spider-Man","Titanic"};
+    String[][] easyAnswerChoices ={{"IT", "Up","Toy Story","Home Alone"},
+            {"Jungle Book", "The Lion King","Madagascar","Tarzan"},
+            {"Frozen", "Cinderella","Encanto","Tangled"},
+            {"Ant-Man", "Spider-Man","Batman","Iron Man"},
+            {"Titanic", "Moana","Shipwrecked","The Perfect Storm"}};
 
+    String[] easyAnswers = {"Up","The Lion King","Frozen","Spider-Man","Titanic"};
 
+    //MEDIUM DIFFICULTY
+    String[] mediumEmojiQuestions = {"🏃‍♂️🍫", "🐀👨‍🍳🍝", "🤖💙", "🎪🐘", "🏔️⛄👧"};
+
+    String[][] mediumAnswerChoices = {
+            {"Forrest Gump", "Charlie and the Chocolate Factory", "The Pursuit of Happiness", "Run Lola Run"},
+            {"Ratatouille", "Chef", "Julie & Julia", "Cloudy with a Chance of Meatballs"},
+            {"WALL-E", "Big Hero 6", "The Iron Giant", "Short Circuit"},
+            {"Dumbo", "The Greatest Showman", "Water for Elephants", "Big Fish"},
+            {"Frozen", "The Snowman", "Brave", "Tangled"}
+    };
+
+    String[] mediumAnswers = {"Forrest Gump", "Ratatouille", "WALL-E", "Dumbo", "Frozen"};
+
+    //HARD DIFFICULTY
+    String[] hardEmojiQuestions = {"🌙🌊🎹", "🔪🚿", "🐑🤐", "🎭😱", "🕰️🍊"};
+
+    String[][] hardAnswerChoices = {
+            {"Moonlight", "The Piano", "La La Land", "Whiplash"},
+            {"Psycho", "Scream", "Carrie", "The Shining"},
+            {"The Silence of the Lambs", "Babe", "Black Sheep", "A Clockwork Orange"},
+            {"The Phantom of the Opera", "Chicago", "Cats", "Moulin Rouge"},
+            {"A Clockwork Orange", "Back to the Future", "The Time Machine", "Looper"}};
+
+    String[] hardAnswers = {"Moonlight", "Psycho", "The Silence of the Lambs", "The Phantom of the Opera", "A Clockwork Orange"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +80,10 @@ public class MediumQuestions extends AppCompatActivity {
         choice3 = (Button) findViewById(R.id.choice3);
         choice4 = (Button) findViewById(R.id.choice4);
 
+        //Gets the difficulty from MainActivity
+        difficulty = getIntent().getStringExtra("difficulty");
+
+        loadQuestions();
         theQuestions();
 
 //creates a listener obj to handle clicks for all 4 buttons
@@ -65,6 +102,24 @@ public class MediumQuestions extends AppCompatActivity {
         choice2.setOnClickListener(answerClick);
         choice3.setOnClickListener(answerClick);
         choice4.setOnClickListener(answerClick);
+    }
+
+    private void loadQuestions(){
+        //Gets the questions based on difficulty chosen
+        if(difficulty.equals("Easy")){
+            emojiQuestions = easyEmojiQuestions;
+            answerChoices = easyAnswerChoices;
+            answers = easyAnswers;
+        } else if (difficulty.equals("Medium")) {
+            emojiQuestions = mediumEmojiQuestions;
+            answerChoices = mediumAnswerChoices;
+            answers = mediumAnswers;
+        } else if (difficulty.equals("Hard")) {
+            emojiQuestions = hardEmojiQuestions;
+            answerChoices = hardAnswerChoices;
+            answers = hardAnswers;
+        }
+
     }
 
     private void theQuestions(){
@@ -88,7 +143,7 @@ public class MediumQuestions extends AppCompatActivity {
         if(currentQuestion < emojiQuestions.length){
             theQuestions();
         } else{
-            Intent intent = new Intent(MediumQuestions.this, Score.class);
+            Intent intent = new Intent(MainQuestions.this, Score.class);
            //carries over the score and # of questions so the other screen
             intent.putExtra("score", score);
             intent.putExtra("totalQuestions", emojiQuestions.length);

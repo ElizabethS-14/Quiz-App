@@ -25,11 +25,21 @@ public class EasyQuestions extends AppCompatActivity {
 
     Button choice4E;
 
+    private int currentQuestionE = 0;
+    private int scoreE = 0;
+
+    String[] emojiQuestionsE = {"🧙🍎👩🏻","👠🫅🏻🎃","🧞‍♂️🐒🏰","🐠🔍🐢","🚗🛻"};
+    String[][] answerChoicesE = {{"Beauty and the Beast","TinkerBell","",""},{"","","",""},{"","","",""},{"","","",""},{"","","",""}};
+    String[] answersE
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_easy_questions);
+
+
 
     }
 }

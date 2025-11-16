@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Medium.setOnClickListener(new View.OnClickListener() {
                @Override
             public void onClick(View v) {
-Intent intent = new Intent(MainActivity.this,MediumQuestions.class);
+Intent intent = new Intent(MainActivity.this,MainQuestions.class);
 startActivity(intent);
             }
         });
