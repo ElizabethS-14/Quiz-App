@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#c0f3f9"
+    android:background="@drawable/gradient_background"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -14,6 +14,7 @@
         android:text="YOU FINISHED"
         android:translationY="-180dp"
         android:textSize="52sp"
+        android:textColor="@color/white"
         />
 
     <TextView
@@ -23,6 +24,7 @@
         android:text="Your final score is"
         android:translationY="-100dp"
         android:textSize="32sp"
+        android:textColor="@color/white"
         />
 
     <TextView
@@ -31,6 +33,7 @@
         android:id="@+id/ScoreNumber"
         android:textSize="42sp"
         android:text=""
+        android:textColor="@color/white"
         />
 
     <Button

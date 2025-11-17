@@ -87,7 +87,7 @@ public class MainQuestions extends AppCompatActivity {
         choice4 = (Button) findViewById(R.id.choice4);
 
         //makes the buttons a Medium Dark Blue
-        originalButtonColor=Color.parseColor("#1976D2");
+        originalButtonColor=Color.parseColor("#0D47A1");
 
         //Gets the difficulty from MainActivity
         difficulty = getIntent().getStringExtra("difficulty");
