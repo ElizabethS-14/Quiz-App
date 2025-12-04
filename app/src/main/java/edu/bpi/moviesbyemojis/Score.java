@@ -78,11 +78,11 @@ public class Score extends AppCompatActivity {
         String subject ="My Movies by Emoji Quiz Score!";
 
         //Email Body
-        String body ="Look at your quiz score:/n/n" +
-                "MOVIES BY EMOJI QUIZ/n" +
-                "Difficulty:" + difficulty + "/n" +
-                "Score: " + score + " out of " + totalQuestions + "/n" +
-                "Percent: " + percentage + "%/n" +
+        String body ="Look at your quiz score:                   " +
+                "MOVIES BY EMOJI QUIZ                                                            " +
+                "Difficulty:" + difficulty + "                                                 " +
+                "Score: " + score + " out of " + totalQuestions + "                          " +
+                "Percent: " + percentage + "%                                                            " +
                 "Thank you for playing! Hope you enjoyed!";
 
         //Saying I want to send something to the code
