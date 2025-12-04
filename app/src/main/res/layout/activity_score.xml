@@ -39,9 +39,30 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:translationY="100dp"
+        android:translationY="160dp"
         android:id="@+id/Restart"
         android:text="Try Again"
+
       />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailButton"
+        android:text="Email my score"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:translationY="60dp"
+       />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailInput"
+        android:hint="Enter your email"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:translationY="-60dp"
+        />
 
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class MainQuestions extends AppCompatActivity {
 
     Button choice4;
 
+    Button Hint;
+
     private int currentQuestion = 0;
     private int score = 0;
     private String difficulty;
@@ -34,6 +37,8 @@ public class MainQuestions extends AppCompatActivity {
     private String[]emojiQuestions;
     private String[][] answerChoices;
     private String[] answers;
+
+    private String[] hints;
     private int originalButtonColor;
 
     //EASY DIFFICULTY
@@ -48,20 +53,20 @@ public class MainQuestions extends AppCompatActivity {
     String[] easyAnswers = {"Up","The Lion King","Frozen","Spider-Man","Titanic"};
 
     //MEDIUM DIFFICULTY
-    String[] mediumEmojiQuestions = {"🐠🔍", "👽📞🏠", "🦈🌊🏖️", "🐻🍯", "🌪️🏠🌈"};
+    String[] mediumEmojiQuestions = {"🐠🔍", "👽📞🏠", "🦈🌊🏖️", "🐻👨🏻", "🌪️🏠🌈"};
 
     String[][] mediumAnswerChoices = {
             {"Finding Dory", "Finding Nemo", "The Little Mermaid", "Shark Tale"},
             {"Close Encounters", "E.T.", "Alien", "Arrival"},
             {"The Meg", "Deep Blue Sea", "Jaws", "Open Water"},
-            {"Paddington", "Winnie the Pooh", "Yogi Bear", "Brother Bear"},
+            {"Paddington", "Ted", "Yogi Bear", "Brother Bear"},
             {"Twister", "Into the Storm", "The Wizard of Oz", "Dorothy's Return"}
     };
 
-    String[] mediumAnswers = {"Finding Nemo", "E.T.", "Jaws", "Winnie the Pooh", "The Wizard of Oz"};
+    String[] mediumAnswers = {"Finding Nemo", "E.T.", "Jaws", "Ted", "The Wizard of Oz"};
 
     //HARD DIFFICULTY
-    String[] hardEmojiQuestions = {"🎹👁️🔪🚪", "🕰️🍊🥛", "🐉👧🎨", "💀🌹🎭", "🦢🖤🩰"};
+    String[] hardEmojiQuestions = {"🎹👁️🔪🚪", "🕰️🍊🥛", "👧🎨", "💀🌹🎭", "🦢🖤🩰"};
 
     String[][] hardAnswerChoices = {
             {"The Sixth Sense", "Psycho", "Eyes Wide Shut", "Shutter Island"},
@@ -72,6 +77,33 @@ public class MainQuestions extends AppCompatActivity {
     };
 
     String[] hardAnswers = {"Eyes Wide Shut", "A Clockwork Orange", "The Girl with the Dragon Tattoo", "Phantom of the Opera", "Black Swan"};
+
+    // EASY HINTS
+    String[] easyHints = {
+            "This movie is about an old man's floating house adventure",
+            "The king of the jungle, set in Africa",
+            "Let it go... ❄️",
+            "He was bit my a radioactive spider",
+            "Never let go, Jack... 🚢"
+    };
+
+    // MEDIUM HINTS
+    String[] mediumHints = {
+            "Just keep swimming! 🐟",
+            "Phone home 📞",
+            "You're gonna need a bigger boat",
+            "Teddy bear comes to life",
+            "There's no place like home 🌈"
+    };
+
+    // HARD HINTS
+    String[] hardHints = {
+            "Stanley Kubrick's final film with Tom Cruise",
+            "Ultraviolence and the Ludovico technique",
+            "Swedish thriller with a hacker protagonist",
+            "Musical set in the Paris Opera House",
+            "Natalie Portman's Oscar-winning role"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +117,7 @@ public class MainQuestions extends AppCompatActivity {
         choice2 = (Button) findViewById(R.id.choice2);
         choice3 = (Button) findViewById(R.id.choice3);
         choice4 = (Button) findViewById(R.id.choice4);
+        Hint = (Button) findViewById(R.id.Hint);
 
         //makes the buttons a Medium Dark Blue
         originalButtonColor=Color.parseColor("#0D47A1");
@@ -94,6 +127,13 @@ public class MainQuestions extends AppCompatActivity {
 
         loadQuestions();
         theQuestions();
+
+        Hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showHint();
+            }
+        });
 
 //creates a listener obj to handle clicks for all 4 buttons
         View.OnClickListener answerClick = new View.OnClickListener() {
@@ -113,20 +153,27 @@ public class MainQuestions extends AppCompatActivity {
         choice4.setOnClickListener(answerClick);
     }
 
+    private void showHint(){
+        Toast.makeText(this, "💡Hint: " + hints[currentQuestion], Toast.LENGTH_LONG).show();
+    }
+
     private void loadQuestions(){
         //Gets the questions based on difficulty chosen
         if(difficulty.equals("Easy")){
             emojiQuestions = easyEmojiQuestions;
             answerChoices = easyAnswerChoices;
             answers = easyAnswers;
+            hints = easyHints;
         } else if (difficulty.equals("Medium")) {
             emojiQuestions = mediumEmojiQuestions;
             answerChoices = mediumAnswerChoices;
             answers = mediumAnswers;
+            hints = mediumHints;
         } else if (difficulty.equals("Hard")) {
             emojiQuestions = hardEmojiQuestions;
             answerChoices = hardAnswerChoices;
             answers = hardAnswers;
+            hints = hardHints;
         }
 
     }
@@ -174,6 +221,7 @@ public class MainQuestions extends AppCompatActivity {
                     Intent intent = new Intent(MainQuestions.this, Score.class);
                     intent.putExtra("score", score);
                     intent.putExtra("totalQuestions", emojiQuestions.length);
+                    intent.putExtra("difficulty", difficulty);
                     startActivity(intent);
                 }
             }
