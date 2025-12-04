@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Films par Emoji</string>
+
+    <!-- Main Screen -->
+    <string name="main_title">🎬 Quiz Films par Emoji 🎬</string>
+    <string name="easy_button">Facile</string>
+    <string name="medium_button">Moyen</string>
+    <string name="hard_button">Difficile</string>
+
+    <!-- Question Screen -->
+    <string name="question_title">Question %1$d sur %2$d</string>
+    <string name="hint_button">💡 Indice</string>
+    <string name="hint_prefix">💡 Indice: %s</string>
+
+    <!-- Score Screen -->
+    <string name="title_end">TU FINIS!:</string>
+    <string name="your_score">Votre Finale Score:</string>
+    <string name="score_display">%1$d sur %2$d</string>
+    <string name="percentage">Pourcentage: %d%%</string>
+    <string name="email_hint">Entrez votre email</string>
+    <string name="email_button">📧 Envoyer mon Score</string>
+    <string name="try_again">Réessayer</string>
+
+    <!-- Email -->
+    <string name="email_subject">Mon Score Quiz Films par Emoji! 🎬</string>
+    <string name="email_chooser">Envoyer l\'email via...</string>
+    <string name="email_intro">Regardez votre score du quiz:\n</string>
+    <string name="email_title">🎬QUIZ FILMS PAR EMOJI🎬\n</string>
+    <string name="email_difficulty">Difficulté:\n</string>
+    <string name="email_score">Score: %1$d sur %2$d\n</string>
+    <string name="email_percentage">Pourcentage: %d%%\n</string>
+    <string name="email_thanks">Merci d\'avoir joué! J\'espère que vous avez apprécié!</string>
+
+    <!-- Error Messages -->
+    <string name="enter_email">Veuillez entrer votre adresse email!</string>
+</resources>

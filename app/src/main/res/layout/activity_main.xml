@@ -13,11 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Title"
-        android:text="\t\tGuess the Movie \t\tby the Emoji"
-        android:translationY="-140dp"
-        android:textSize="52sp"
+        android:text="@string/main_title"
+        android:translationY="-80dp"
+        android:textSize="50sp"
         android:textColor="@color/white"
-
         />
 
     <Button
@@ -25,7 +24,8 @@
         android:layout_width="238dp"
         android:layout_height="wrap_content"
         android:text="@string/easy_button"
-        android:textSize="52sp" />
+        android:textSize="52sp"
+        android:translationY="80dp"/>
 
     <Button
         android:id="@+id/Medium"
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/medium_button"
         android:textSize="52sp"
+        android:translationY="90dp"
         />
 
     <Button
@@ -40,7 +41,25 @@
         android:layout_width="244dp"
         android:layout_height="wrap_content"
         android:text="@string/hard_button"
-        android:textSize="52sp" />
+        android:textSize="52sp"
+        android:translationY="100dp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/englishButton"
+        android:text="English"
+        android:translationY="-280dp"
+        android:translationX="-100dp"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/frenchButton"
+        android:text="Français"
+        android:translationY="-340dp"
+        android:translationX="100dp"
+        android:textSize="30sp" />
 
 </LinearLayout>

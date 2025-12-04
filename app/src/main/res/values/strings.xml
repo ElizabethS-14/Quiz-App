@@ -2,7 +2,7 @@
      <string name="app_name">Movies by Emoji</string>
 
      <!-- Main Screen -->
-     <string name="main_title">🎬 Movies by Emoji Quiz 🎬</string>
+     <string name="main_title">\t🎬 Movies by Emoji Quiz 🎬</string>
      <string name="easy_button">Easy</string>
      <string name="medium_button">Medium</string>
      <string name="hard_button">Hard</string>
@@ -13,7 +13,8 @@
      <string name="hint_prefix">💡 Hint: %s</string>
 
      <!-- Score Screen -->
-     <string name="your_score">Your Score:</string>
+      <string name="title_end">YOU FINISHED!:</string>
+     <string name="your_score">Your final score is:</string>
      <string name="score_display">%1$d out of %2$d</string>
      <string name="percentage">Percentage: %d%%</string>
      <string name="email_hint">Enter your email</string>
