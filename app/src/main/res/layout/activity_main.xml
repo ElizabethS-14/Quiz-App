@@ -24,14 +24,14 @@
         android:id="@+id/Easy"
         android:layout_width="238dp"
         android:layout_height="wrap_content"
-        android:text="Easy"
+        android:text="@string/easy_button"
         android:textSize="52sp" />
 
     <Button
         android:id="@+id/Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medium"
+        android:text="@string/medium_button"
         android:textSize="52sp"
         />
 
@@ -39,7 +39,7 @@
         android:id="@+id/Hard"
         android:layout_width="244dp"
         android:layout_height="wrap_content"
-        android:text="Hard"
+        android:text="@string/hard_button"
         android:textSize="52sp" />
 
 

@@ -154,7 +154,7 @@ public class MainQuestions extends AppCompatActivity {
     }
 
     private void showHint(){
-        Toast.makeText(this, "💡Hint: " + hints[currentQuestion], Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.hint_prefix, hints[currentQuestion]), Toast.LENGTH_LONG).show();
     }
 
     private void loadQuestions(){
@@ -187,7 +187,7 @@ public class MainQuestions extends AppCompatActivity {
 
 
     private void theQuestions(){
-        Title.setText("Question " + (currentQuestion + 1) + " of " + emojiQuestions.length);
+        Title.setText(getString(R.string.question_title, currentQuestion + 1, emojiQuestions.length));
         Emojis.setText(emojiQuestions[currentQuestion]);
 
         choice1.setText(answerChoices[currentQuestion][0]);

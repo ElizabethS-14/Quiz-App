@@ -78,12 +78,12 @@ public class Score extends AppCompatActivity {
         String subject ="My Movies by Emoji Quiz Score!";
 
         //Email Body
-        String body ="Look at your quiz score:                   " +
-                "MOVIES BY EMOJI QUIZ                                                            " +
-                "Difficulty:" + difficulty + "                                                 " +
-                "Score: " + score + " out of " + totalQuestions + "                          " +
-                "Percent: " + percentage + "%                                                            " +
-                "Thank you for playing! Hope you enjoyed!";
+        String body =getString(R.string.email_intro) +
+                getString(R.string.email_title)  +
+                getString(R.string.email_difficulty, difficulty)  +
+                getString(R.string.email_score, score, totalQuestions) +
+                getString(R.string.email_percentage, percentage) +
+                getString(R.string.email_thanks);
 
         //Saying I want to send something to the code
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -98,3 +98,6 @@ public class Score extends AppCompatActivity {
         startActivity(Intent.createChooser(emailIntent, "Send email using"));
     }
 }
+//"Score: " + score + " out of " + totalQuestions + "                          " +
+//                "Percent: " + percentage + "%                                                            " +
+//                "Thank you for playing! Hope you enjoyed!";
