@@ -3,6 +3,7 @@
     {
       "id": 1,
       "prompt": "🎈👴🏠",
+      "hint": "This movie is about an old man's floating house adventure",
       "answers": [
         {
           "response":"IT",
@@ -25,6 +26,7 @@
     {
       "id": 2,
       "prompt": "🦁👑",
+      "hint": "The king of the jungle, set in Africa",
       "answers": [
         {
           "response":"Jungle Book",
@@ -47,6 +49,7 @@
     {
       "id": 3,
       "prompt": "🧊️👭⛄",
+      "hint": "Let it go... ❄️",
       "answers": [
         {
           "response":"Frozen",
@@ -69,6 +72,7 @@
     {
       "id": 4,
       "prompt": "🕷️🧑🎓",
+      "hint": "He was bit by a radioactive spider",
       "answers": [
         {
           "response":"Ant-Man",
@@ -91,6 +95,7 @@
     {
       "id": 5,
       "prompt": "🚢💔🌊",
+      "hint": "Never let go, Jack... 🚢",
       "answers": [
         {
           "response":"Titanic",
@@ -113,6 +118,7 @@
     {
       "id": 6,
       "prompt": "🐠🔍",
+      "hint": "Just keep swimming! 🐟",
       "answers": [
         {
           "response":"Finding Dory",
@@ -135,6 +141,7 @@
     {
       "id": 7,
       "prompt": "👽📞🏠",
+      "hint": "Phone home 📞",
       "answers": [
         {
           "response":"Close Encounters",
@@ -157,6 +164,7 @@
     {
       "id": 8,
       "prompt": "🦈🌊🏖️",
+      "hint": "You're gonna need a bigger boat",
       "answers": [
         {
           "response":"The Meg",
@@ -179,6 +187,7 @@
     {
       "id": 9,
       "prompt": "🐻👨🏻",
+      "hint": "Teddy bear comes to life",
       "answers": [
         {
           "response":"Paddington",
@@ -201,6 +210,7 @@
     {
       "id": 10,
       "prompt": "🌪️🏠🌈",
+      "hint": "There's no place like home 🌈",
       "answers": [
         {
           "response":"Twister",
@@ -223,6 +233,7 @@
     {
       "id": 11,
       "prompt": "🎹👁️🔪🚪",
+      "hint": "Stanley Kubrick's final film with Tom Cruise",
       "answers": [
         {
           "response":"The Sixth Sense",
@@ -245,6 +256,7 @@
     {
       "id": 12,
       "prompt": "🕰️🍊🥛",
+      "hint": "Ultraviolence and the Ludovico technique",
       "answers": [
         {
           "response":"Back to the Future",
@@ -267,6 +279,7 @@
     {
       "id": 13,
       "prompt": "👧🎨",
+      "hint": "Swedish thriller with a hacker protagonist",
       "answers": [
         {
           "response":"Gone Girl",
@@ -289,6 +302,7 @@
     {
       "id": 14,
       "prompt": "💀🌹🎭",
+      "hint": "Musical set in the Paris Opera House",
       "answers": [
         {
           "response":"The Mask of Zorro",
@@ -311,6 +325,7 @@
     {
       "id": 15,
       "prompt": "🦢🖤🩰",
+      "hint": "Natalie Portman's Oscar-winning role",
       "answers": [
         {
           "response":"The Nutcracker",
@@ -332,3 +347,4 @@
     }
   ]
 }
+
