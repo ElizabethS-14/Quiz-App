@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "701496029350",
+    "project_id": "quizapp-258f7",
+    "storage_bucket": "quizapp-258f7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701496029350:android:476b0eaeb3ba3d30aa0467",
+        "android_client_info": {
+          "package_name": "edu.bpi.moviesbyemojis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYTLO2ju7gttdxB4oDIgxOpJStt6k_G-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
