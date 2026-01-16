@@ -1,36 +1,36 @@
- <resources>
-     <string name="app_name">Movies by Emoji</string>
+<resources>
+    <string name="app_name">Movies by Emoji</string>
 
-     <!-- Main Screen -->
-     <string name="main_title">\t🎬 Movies by Emoji Quiz 🎬</string>
-     <string name="easy_button">Easy</string>
-     <string name="medium_button">Medium</string>
-     <string name="hard_button">Hard</string>
+    <!-- Main Screen -->
+    <string name="main_title">\t🎬 Movies by Emoji Quiz 🎬</string>
+    <string name="easy_button">Easy</string>
+    <string name="medium_button">Medium</string>
+    <string name="hard_button">Hard</string>
 
-     <!-- Question Screen -->
-     <string name="question_title">Question %1$d of %2$d</string>
-     <string name="hint_button">💡 Hint</string>
-     <string name="hint_prefix">💡 Hint: %s</string>
+    <!-- Question Screen -->
+    <string name="question_title">Question %1$d of %2$d</string>
+    <string name="hint_button">💡 Hint</string>
+    <string name="hint_prefix">💡 Hint: %s</string>
 
-     <!-- Score Screen -->
-      <string name="title_end">YOU FINISHED!:</string>
-     <string name="your_score">Your final score is:</string>
-     <string name="score_display">%1$d out of %2$d</string>
-     <string name="percentage">Percentage: %d%%</string>
-     <string name="email_hint">Enter your email</string>
-     <string name="email_button">📧 Email My Score</string>
-     <string name="try_again">Try Again</string>
+    <!-- Score Screen -->
+    <string name="title_end">YOU FINISHED!:</string>
+    <string name="your_score">Your final score is:</string>
+    <string name="score_display">%1$d out of %2$d</string>
+    <string name="percentage">Percentage: %d%%</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="email_button">📧 Email My Score</string>
+    <string name="try_again">Try Again</string>
 
-     <!-- Email -->
-     <string name="email_subject">My Movies by Emoji Quiz Score! 🎬</string>
-     <string name="email_chooser">Send email using...</string>
-     <string name="email_intro">Look at your quiz score:\n</string>
-     <string name="email_title">🎬MOVIES BY EMOJI QUIZ🎬\n</string>
-     <string name="email_difficulty">Difficulty:\n</string>
-     <string name="email_score">Score: %1$d out of %2$d\n</string>
-     <string name="email_percentage">Percentage: %d%%\n</string>
-     <string name="email_thanks">Thank you for playing! Hope you enjoyed!</string>
+    <!-- Email -->
+    <string name="email_subject">My Movies by Emoji Quiz Score! 🎬</string>
+    <string name="email_chooser">Send email using...</string>
+    <string name="email_intro">Look at your quiz score:\n</string>
+    <string name="email_title">🎬MOVIES BY EMOJI QUIZ🎬\n</string>
+    <string name="email_difficulty">Difficulty:\n</string>
+    <string name="email_score">Score: %1$d out of %2$d\n</string>
+    <string name="email_percentage">Percentage: %d%%\n</string>
+    <string name="email_thanks">Thank you for playing! Hope you enjoyed!</string>
 
-     <!-- Error Messages -->
-     <string name="enter_email">Please enter your email address!</string>
+    <!-- Error Messages -->
+    <string name="enter_email">Please enter your email address!</string>
 </resources>

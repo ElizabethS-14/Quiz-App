@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/TitleEnd"
         android:text="@string/title_end"
-        android:translationY="-180dp"
+        android:translationY="-140dp"
         android:textSize="52sp"
         android:textColor="@color/white"
         />
@@ -63,6 +63,33 @@
         android:inputType="textEmailAddress"
         android:textSize="16sp"
         android:translationY="-60dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="100dp"
+        android:text="Send Data To Firebase"
+        android:textSize="20sp"
+        android:id="@+id/sendBTN"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="100dp"
+        android:text="Get Data From Firebase"
+        android:textSize="20sp"
+        android:id="@+id/retrieveBTN"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data Retrieved"
+        android:translationY="120dp"
+        android:textSize="18sp"
+        android:id="@+id/msgFromFBTV"
         />
 
 </LinearLayout>

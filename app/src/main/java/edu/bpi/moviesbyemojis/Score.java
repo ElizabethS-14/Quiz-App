@@ -2,16 +2,24 @@ package edu.bpi.moviesbyemojis;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Score extends AppCompatActivity {
 
@@ -27,6 +35,14 @@ public class Score extends AppCompatActivity {
 
     EditText emailInput;
 
+    //Firebase stuff
+    Button sendBTN, retrieveBTN;
+    TextView msgFromFBTV;
+    String message;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+    final String TAG = "Sup? : ";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +56,25 @@ public class Score extends AppCompatActivity {
         emailButton = (Button) findViewById(R.id.emailButton);
         emailInput = (EditText)findViewById(R.id.emailInput);
 
+        //Firebase stuff
+        sendBTN = findViewById(R.id.sendBTN);
+        retrieveBTN = findViewById(R.id.retrieveBTN);
+        msgFromFBTV = findViewById(R.id.msgFromFBTV);
+        message = "";
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("message");
+
         Intent intent = getIntent();
         //grabs the value of score, totalQuestions, and difficulty from the other class
         int score = intent.getIntExtra("score", 0);
         int totalQuestions = intent.getIntExtra("totalQuestions", 0);
         String difficulty = getIntent().getStringExtra("difficulty");
         ScoreNumber.setText(score + " / " + totalQuestions);
+
+        //More firebase
+        Score msgET = new Score();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("message");
 
 
         emailButton.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +94,49 @@ public class Score extends AppCompatActivity {
             }
         });
 
+        //MORE firebase
+
+        sendBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myRef.setValue(UserScore());
+            }
+        });
+
+        retrieveBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String val = snapshot.getValue(String.class);
+                        msgFromFBTV.setText(val);
+                        Log.w(TAG, "Successfully read value.");
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.w(TAG, "Failed to read value.", error.toException());
+
+                    }
+                });
+            }
+        });
+
     }
+
+    //FIREBASE
+    public String UserScore(){
+        String email = getString(String.valueOf(emailInput));
+        String score = getString(String.valueOf(ScoreNumber));
+        String UserScore = email + " score is: " + score;
+        return UserScore;
+    }
+
+    private String getString(String emailInput) {
+        return emailInput;
+    }
+
     private void sendEmailScore(int score, int totalQuestions, String difficulty){
 
         //Get the email the user typed
@@ -80,7 +151,7 @@ public class Score extends AppCompatActivity {
         //Email Body
         String body =getString(R.string.email_intro) +
                 getString(R.string.email_title)  +
-                getString(R.string.email_difficulty, difficulty)  +
+                getString(R.string.email_difficulty,difficulty)  +
                 getString(R.string.email_score, score, totalQuestions) +
                 getString(R.string.email_percentage, percentage) +
                 getString(R.string.email_thanks);
@@ -98,6 +169,3 @@ public class Score extends AppCompatActivity {
         startActivity(Intent.createChooser(emailIntent, "Send email using"));
     }
 }
-//"Score: " + score + " out of " + totalQuestions + "                          " +
-//                "Percent: " + percentage + "%                                                            " +
-//                "Thank you for playing! Hope you enjoyed!";
