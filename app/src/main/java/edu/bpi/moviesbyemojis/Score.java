@@ -151,7 +151,7 @@ public class Score extends AppCompatActivity {
         //Email Body
         String body =getString(R.string.email_intro) +
                 getString(R.string.email_title)  +
-                getString(R.string.email_difficulty,difficulty)  +
+               // getString(R.string.email_difficulty, difficulty)  +
                 getString(R.string.email_score, score, totalQuestions) +
                 getString(R.string.email_percentage, percentage) +
                 getString(R.string.email_thanks);
