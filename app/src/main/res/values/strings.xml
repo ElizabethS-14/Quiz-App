@@ -20,13 +20,16 @@
     <string name="email_hint">Enter your email</string>
     <string name="email_button">📧 Email My Score</string>
     <string name="try_again">Try Again</string>
+    <string name="send_FB">Send Data To Firebase</string>
+    <string name="get_FB">Get Data From Firebase</string>
+    <string name="data_ret">Data Retrieved</string>
 
     <!-- Email -->
     <string name="email_subject">My Movies by Emoji Quiz Score! 🎬</string>
     <string name="email_chooser">Send email using...</string>
     <string name="email_intro">Look at your quiz score:\n</string>
     <string name="email_title">🎬MOVIES BY EMOJI QUIZ🎬\n</string>
-    <string name="email_difficulty">Difficulty:\n</string>
+    <string name="email_difficulty">Difficulty: %s\n</string>
     <string name="email_score">Score: %1$d out of %2$d\n</string>
     <string name="email_percentage">Percentage: %d%%\n</string>
     <string name="email_thanks">Thank you for playing! Hope you enjoyed!</string>

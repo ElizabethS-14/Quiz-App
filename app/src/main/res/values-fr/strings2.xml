@@ -22,7 +22,9 @@
     <string name="email_button">📧 Envoyer mon Score</string>
     <string name="try_again">Réessayer</string>
 
+
     <!-- Email -->
+    <string name="data_ret">Données récupérées</string>
     <string name="email_subject">Mon Score Quiz Films par Emoji! 🎬</string>
     <string name="email_chooser">Envoyer l\'email via...</string>
     <string name="email_intro">Regardez votre score du quiz:\n</string>
@@ -34,4 +36,6 @@
 
     <!-- Error Messages -->
     <string name="enter_email">Veuillez entrer votre adresse email!</string>
+    <string name="send_FB">Envoyer des données à Firebase</string>
+    <string name="get_FB">Récupérer les données de Firebase</string>
 </resources>

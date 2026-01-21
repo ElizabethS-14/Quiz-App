@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:translationY="100dp"
-        android:text="Send Data To Firebase"
+        android:text="@string/send_FB"
         android:textSize="20sp"
         android:id="@+id/sendBTN"
         />
@@ -78,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:translationY="100dp"
-        android:text="Get Data From Firebase"
+        android:text="@string/get_FB"
         android:textSize="20sp"
         android:id="@+id/retrieveBTN"
         />
@@ -86,7 +86,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Data Retrieved"
+        android:text="@string/data_ret"
         android:translationY="120dp"
         android:textSize="18sp"
         android:id="@+id/msgFromFBTV"

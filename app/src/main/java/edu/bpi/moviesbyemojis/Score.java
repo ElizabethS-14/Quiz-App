@@ -43,6 +43,8 @@ public class Score extends AppCompatActivity {
     DatabaseReference myRef;
     final String TAG = "Sup? : ";
 
+    private String difficulty;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,11 +70,10 @@ public class Score extends AppCompatActivity {
         //grabs the value of score, totalQuestions, and difficulty from the other class
         int score = intent.getIntExtra("score", 0);
         int totalQuestions = intent.getIntExtra("totalQuestions", 0);
-        String difficulty = getIntent().getStringExtra("difficulty");
+        difficulty = getIntent().getStringExtra("difficulty");
         ScoreNumber.setText(score + " / " + totalQuestions);
 
         //More firebase
-        Score msgET = new Score();
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("message");
 
@@ -127,14 +128,10 @@ public class Score extends AppCompatActivity {
 
     //FIREBASE
     public String UserScore(){
-        String email = getString(String.valueOf(emailInput));
-        String score = getString(String.valueOf(ScoreNumber));
+        String email = emailInput.getText().toString();
+        String score = ScoreNumber.getText().toString();
         String UserScore = email + " score is: " + score;
         return UserScore;
-    }
-
-    private String getString(String emailInput) {
-        return emailInput;
     }
 
     private void sendEmailScore(int score, int totalQuestions, String difficulty){
@@ -151,7 +148,7 @@ public class Score extends AppCompatActivity {
         //Email Body
         String body =getString(R.string.email_intro) +
                 getString(R.string.email_title)  +
-               // getString(R.string.email_difficulty, difficulty)  +
+               getString(R.string.email_difficulty,difficulty) +
                 getString(R.string.email_score, score, totalQuestions) +
                 getString(R.string.email_percentage, percentage) +
                 getString(R.string.email_thanks);
