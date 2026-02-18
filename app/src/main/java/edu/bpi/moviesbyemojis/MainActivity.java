@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainQuestions.class);
-                intent.putExtra("difficulty", "Easy");
+                intent.putExtra("difficulty", "easy");
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainQuestions.class);
-                intent.putExtra("difficulty", "Medium");
+                intent.putExtra("difficulty", "medium");
                 startActivity(intent);
             }
         });
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainQuestions.class);
-                intent.putExtra("difficulty", "Hard");
+                intent.putExtra("difficulty", "hard");
                 startActivity(intent);
             }
         });

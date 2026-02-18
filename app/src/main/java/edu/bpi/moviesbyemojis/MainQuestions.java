@@ -3,6 +3,8 @@ package edu.bpi.moviesbyemojis;
 import static android.graphics.Color.GREEN;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class MainQuestions extends AppCompatActivity {
 
@@ -105,9 +109,71 @@ public class MainQuestions extends AppCompatActivity {
             "Natalie Portman's Oscar-winning role"
     };
 
+    // EASY FRENCH
+    String[][] easyAnswerChoicesFrench = {
+            {"ÇA", "Là-haut", "Toy Story", "Maman, j'ai raté l'avion"},
+            {"Le Livre de la jungle", "Le Roi Lion", "Madagascar", "Tarzan"},
+            {"Congelée", "Cendrillon", "Encanto", "Raiponce"},
+            {"Ant-Man", "Spider-Man", "Batman", "Iron Man"},
+            {"Titanic", "Moana", "Naufragé", "En pleine tempête"}
+    };
+
+    String[] easyAnswersFrench = {"Là-haut", "Le Roi Lion", "Congelée", "Spider-Man", "Titanic"};
+
+    // MEDIUM FRENCH
+    String[][] mediumAnswerChoicesFrench = {
+            {"Le Monde de Dory", "Le Monde de Nemo", "La Petite Sirène", "Gang de requins"},
+            {"Rencontres du troisième type", "E.T. l'extra-terrestre", "Alien", "Premier contact"},
+            {"En eaux troubles", "Peur bleue", "Les Dents de la mer", "Open Water"},
+            {"Paddington", "Ted", "Yogi l'ours", "Frère des ours"},
+            {"Twister", "Tempête de feu", "Le Magicien d'Oz", "Le Retour de Dorothy"}
+    };
+
+    String[] mediumAnswersFrench = {"Le Monde de Nemo", "E.T. l'extra-terrestre", "Les Dents de la mer", "Ted", "Le Magicien d'Oz"};
+
+    // HARD FRENCH
+    String[][] hardAnswerChoicesFrench = {
+            {"Sixième Sens", "Psychose", "Eyes Wide Shut", "Shutter Island"},
+            {"Retour vers le futur", "La Machine à explorer le temps", "Orange County", "Orange mécanique"},
+            {"Les Apparences", "La Fille du train", "Millénium", "Lisbeth"},
+            {"Le Masque de Zorro", "Le Fantôme de l'Opéra", "Les Misérables", "Sweeney Todd"},
+            {"Casse-Noisette", "Dance Floor", "Black Swan", "Le Lac des cygnes"}
+    };
+
+    String[] hardAnswersFrench = {"Eyes Wide Shut", "Orange mécanique", "Millénium", "Le Fantôme de l'Opéra", "Black Swan"};
+
+    // EASY HINTS FRENCH
+    String[] easyHintsFrench = {
+            "Ce film parle de la maison flottante d'un vieil homme",
+            "Le roi de la jungle, situé en Afrique",
+            "Libérée, délivrée... ❄️",
+            "Il a été mordu par une araignée radioactive",
+            "Ne me lâche jamais, Jack... 🚢"
+    };
+
+    // MEDIUM HINTS FRENCH
+    String[] mediumHintsFrench = {
+            "Continue de nager! 🐟",
+            "Téléphone maison 📞",
+            "Il va nous falloir un plus gros bateau",
+            "Un ours en peluche prend vie",
+            "Il n'y a pas d'endroit comme la maison 🌈"
+    };
+
+    // HARD HINTS FRENCH
+    String[] hardHintsFrench = {
+            "Le dernier film de Stanley Kubrick avec Tom Cruise",
+            "L'ultraviolence et la technique Ludovico",
+            "Thriller suédois avec une hacker protagoniste",
+            "Musical situé à l'Opéra de Paris",
+            "Le rôle oscarisé de Natalie Portman"
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadLanguage();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_questions);
 
@@ -157,25 +223,68 @@ public class MainQuestions extends AppCompatActivity {
         Toast.makeText(this, getString(R.string.hint_prefix, hints[currentQuestion]), Toast.LENGTH_LONG).show();
     }
 
-    private void loadQuestions(){
-        //Gets the questions based on difficulty chosen
-        if(difficulty.equals("Easy")){
-            emojiQuestions = easyEmojiQuestions;
-            answerChoices = easyAnswerChoices;
-            answers = easyAnswers;
-            hints = easyHints;
-        } else if (difficulty.equals("Medium")) {
-            emojiQuestions = mediumEmojiQuestions;
-            answerChoices = mediumAnswerChoices;
-            answers = mediumAnswers;
-            hints = mediumHints;
-        } else if (difficulty.equals("Hard")) {
-            emojiQuestions = hardEmojiQuestions;
-            answerChoices = hardAnswerChoices;
-            answers = hardAnswers;
-            hints = hardHints;
-        }
+    private void loadLanguage(){
+        // Get access to the saved settings file called "Settings"
+        SharedPreferences prefs = getSharedPreferences("Settings", MODE_PRIVATE);
+        // Read the saved language code from the file. If nothing was saved, use "en" (English) as default
+        String language = prefs.getString("Language", "en");
+        // Create a Locale object with the saved language code ("en" for English and "fr" for French)
+        Locale locale = new Locale(language);
+        // Set this locale as the default for the entire app
+        Locale.setDefault(locale);
+        // Create a new Configuration object
+        Configuration config = new Configuration();
+        // Tell the configuration to use our chosen language
+        config.setLocale(locale);
+        // Apply this language configuration to all the app's text
+        // This makes all strings from strings.xml use the correct language
+        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+    }
 
+    private void loadQuestions(){
+        // Check current language
+        String currentLanguage = Locale.getDefault().getLanguage();
+
+        if(difficulty.equals("easy")){
+            emojiQuestions = easyEmojiQuestions;
+
+            // Load based on language
+            if(currentLanguage.equals("fr")){
+                answerChoices = easyAnswerChoicesFrench;
+                answers = easyAnswersFrench;
+                hints = easyHintsFrench;  // French hints
+            } else {
+                answerChoices = easyAnswerChoices;
+                answers = easyAnswers;
+                hints = easyHints;  // English hints
+            }
+
+        } else if (difficulty.equals("medium")) {
+            emojiQuestions = mediumEmojiQuestions;
+
+            if(currentLanguage.equals("fr")){
+                answerChoices = mediumAnswerChoicesFrench;
+                answers = mediumAnswersFrench;
+                hints = mediumHintsFrench;  // French
+            } else {
+                answerChoices = mediumAnswerChoices;
+                answers = mediumAnswers;
+                hints = mediumHints;  // English
+            }
+
+        } else if (difficulty.equals("hard")) {
+            emojiQuestions = hardEmojiQuestions;
+
+            if(currentLanguage.equals("fr")){
+                answerChoices = hardAnswerChoicesFrench;
+                answers = hardAnswersFrench;
+                hints = hardHintsFrench;  // French
+            } else {
+                answerChoices = hardAnswerChoices;
+                answers = hardAnswers;
+                hints = hardHints;  // English
+            }
+        }
     }
     //resets the button color after u get the answer right or wrong
     private void resetButtonColors() {

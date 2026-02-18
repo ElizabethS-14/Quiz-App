@@ -38,4 +38,5 @@
     <string name="enter_email">Veuillez entrer votre adresse email!</string>
     <string name="send_FB">Envoyer des données à Firebase</string>
     <string name="get_FB">Récupérer les données de Firebase</string>
+
 </resources>
